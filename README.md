@@ -1,2 +1,2 @@
-# Dashboard-W-chruszczof
-https://parosoftwaredotcom.github.io/Dashboard-W-chruszczof/
+Strona Easy Serwer User Interface
+](https://parosoftwaredotcom.github.io/EasyS-UI/)

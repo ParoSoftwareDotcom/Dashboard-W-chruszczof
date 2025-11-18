@@ -62,6 +62,23 @@
         <path d="M2 4.75A2.75 2.75 0 0 1 4.75 2h14.5A2.75 2.75 0 0 1 22 4.75v14.5A2.75 2.75 0 0 1 19.25 22H4.75A2.75 2.75 0 0 1 2 19.25V4.75Zm2.3-.25 7.7 5.4 7.7-5.4H4.3Zm15.7 2.2-7.9 5.55a1 1 0 0 1-1.2 0L3 6.7v12.55c0 .69.56 1.25 1.25 1.25h15.5c.69 0 1.25-.56 1.25-1.25V6.7Z"/>
       </svg>
     </a>
+<button id="Secret">Secret</button>
+
+<script>
+const apiKey = "PVF3AINOX00SFPGS"; // ThingSpeak write key
+
+document.getElementById("Secret").addEventListener("click", async () => {
+  try {
+    await fetch(`https://api.thingspeak.com/update?api_key=${apiKey}&field2=1`);
+    alert("Garage command sent!");
+  } catch (err) {
+    console.error(err);
+    alert("Failed to send command.");
+  }
+});
+</script>
+
+
   </div>
 </footer>
 

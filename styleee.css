@@ -1,0 +1,311 @@
+/* ==========================================
+   ROOT – zmienne globalne + reset
+   ========================================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-1: #1f2125;
+  --bg-2: #181212;
+  --panel: rgb(33, 31, 36);
+  --muted: #0ef174;
+  --accent: rgb(14, 241, 116);
+  --glass: rgba(255, 255, 255, 0.03);
+  --btn-h: 48px;
+  --radius: 14px;
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================
+   BODY — główne tło + efekt szumu
+   ========================================== */
+body {
+  min-height: 100%;
+  background: linear-gradient(180deg, var(--bg-1) 0%, #0e1114 40%, #101316 100%);
+  color: #e6eef3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(20, 1, 1, 0) 0 1px,
+    transparent 1px 6px
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.05;
+}
+
+/* ==========================================
+   DASHBOARD / KONTENER
+   ========================================== */
+.dashboard {
+  width: 100%;
+  max-width: 980px;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(6px) saturate(110%);
+  box-shadow: 0 8px 30px rgba(138, 92, 246, 0.3),
+              inset 0 1px 0 rgba(255,255,255,0.02);
+
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* — mobile */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  aside {
+    order: 2;
+  }
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--bg-2), var(--panel));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6),
+              inset 0 -6px 12px rgba(255,255,255,0.02);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+p.lead {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ==========================================
+   GRID BUTTONÓW
+   ========================================== */
+.grid {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ==========================================
+   BUTTONY
+   ========================================== */
+.btn {
+  appearance: none;
+  border: 0;
+  padding: 0 16px;
+  height: var(--btn-h);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  background: linear-gradient(180deg,
+              rgba(139, 92, 246, 0.6),
+              rgba(39, 4, 66, 0.6));
+
+  color: inherit;
+  box-shadow: 0 6px 18px rgba(2,6,12,0.6);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(1,6,10,0.6);
+}
+
+.btn .icon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.95;
+}
+
+.btn.green { border-left: 4px solid rgba(110,231,183,0.12); }
+.btn.blue  { border-left: 4px solid rgba(120,160,255,0.07); }
+.btn.warn  { border-left: 4px solid rgba(255,200,100,0.06); }
+
+/* ==========================================
+   ASIDE + KARTY
+   ========================================== */
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.02);
+  background: linear-gradient(180deg,
+              rgba(255,255,255,0.015),
+              rgba(255,255,255,0.01));
+}
+
+.server-name {
+  font-weight: 600;
+}
+
+.meta {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ==========================================
+   STATUS PILL — z wariantami
+   ========================================== */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #ccd;
+
+  transition: all 0.25s ease;
+}
+
+.status-pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+  opacity: 0.9;
+}
+
+/* VARIANTY */
+.status-ok {
+  border-color: rgb(0,255,120);
+  color: rgb(0,255,120);
+  box-shadow: 0 0 12px rgba(0,255,120,0.25);
+}
+.status-ok::before { animation: pulse 1.6s infinite; }
+
+.status-warn {
+  border-color: rgb(255,214,90);
+  color: rgb(255,214,90);
+  box-shadow: 0 0 12px rgba(255,214,90,0.15);
+}
+
+.status-off {
+  border-color: rgb(255,90,90);
+  color: rgb(255,90,90);
+  opacity: 0.75;
+  box-shadow: 0 0 10px rgba(255,90,90,0.15);
+}
+
+/* puls online */
+@keyframes pulse {
+  0%   { transform: scale(1); opacity: 0.9; }
+  50%  { transform: scale(1.45); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255,255,255,0.05);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.update-time {
+  color: #aaa;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.social-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.social-links a {
+  color: rgb(139, 92, 246);
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-2px) scale(1.1);
+}
+
+.social-links svg {
+  width: 22px;
+  height: 22px;
+}

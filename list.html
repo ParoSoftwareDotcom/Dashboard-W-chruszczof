@@ -1,44 +1,54 @@
 <!doctype html>
 <html lang="pl">
 <head>
-   <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>List</title>
-    <link rel="stylesheet" href="stylee.css">
+    <link rel="stylesheet" href="styleee.css">
 </head>
+
 <body>
-  <h1>Lista serwerów</h1>
-  <p>Kliknij, aby otworzyć wybrany serwer (adresy przykładowe — podmień na swoje).</p>
 
-  <ul>
-    <!-- Web / HTTP -->
-    <li><a href="http://example.com" target="_blank" rel="noopener noreferrer">Serwer WWW (HTTP) — example.com</a></li>
-    <li><a href="https://secure.example.com" target="_blank" rel="noopener noreferrer">Serwer WWW (HTTPS) — secure.example.com</a></li>
+    <!-- Pasek u góry -->
+   <div class="top-bar">
+    <div class="top-left">
+        <h1>Lista serwerów</h1>
+        <p class="lead">Status usług i adresy dostępu</p>
+    </div>
+<a href="index.html" class="back-button">← Powrót</a>
 
-    <!-- FTP -->
-    <li><a href="ftp://ftp.example.com" target="_blank" rel="noopener noreferrer">Serwer FTP — ftp.example.com</a></li>
+<!-- Główna zawartość -->
+<div class="wrapper">
 
-    <!-- SSH (nie wszystkie przeglądarki uruchomią ssh://; przydatne do klienta) -->
-    <li><a href="ssh://user@ssh.example.com" target="_blank" rel="noopener noreferrer">Serwer SSH — ssh.example.com (ssh://)</a></li>
+    <!-- ELEMENT 1 -->
+    <div class="item">
+        <div class="item-info">
+            <h2>Proxmox1</h2>
+            <p>HP380G6:8006 - Ubuntu 24</p>
+            <span class="status-pill off">TBA</span>
+        </div>
+        <a href="dashboard-proxmox1.html" class="go-dashboard">Dashboard →</a>
+    </div>
 
-    <!-- Minecraft (protokół gry; przeglądarka go nie otworzy bez odpowiedniego handlera) -->
-    <li><a href="minecraft://play.example-mc.net" target="_blank" rel="noopener noreferrer">Serwer Minecraft — play.example-mc.net (minecraft://)</a></li>
+    <!-- ELEMENT 2 -->
+    <div class="item">
+        <div class="item-info">
+            <h2>NAS</h2>
+            <p>ParoDSKTP2:8005 - Truenas CORE</p>
+            <span class="status-pill off">TBA</span>
+        </div>
+        <a href="dashboard-nas.html" class="go-dashboard">Dashboard →</a>
+    </div>
 
-    <!-- Discord (zaproszenie) -->
-    <li><a href="https://discord.gg/PRZYKLAD" target="_blank" rel="noopener noreferrer">Serwer Discord — zaproszenie</a></li>
+    <!-- ELEMENT 3 -->
+    <div class="item">
+        <div class="item-info">
+            <h2>Serwer FTP</h2>
+            <p>AleksanderJti.local:21 - Windows 2019</p>
+            <span class="status-pill off">TBA</span>
+        </div>
+        <a href="dashboard-ftp.html" class="go-dashboard">Dashboard →</a>
+    </div>
 
-    <!-- TeamSpeak -->
-    <li><a href="ts3server://ts.example.com" target="_blank" rel="noopener noreferrer">TeamSpeak 3 — ts.example.com (ts3server://)</a></li>
-
-    <!-- Mail (SMTP / Webmail) -->
-    <li><a href="mailto:admin@example.com" target="_blank" rel="noopener noreferrer">Kontakt e-mail — admin@example.com</a></li>
-
-    <!-- Panel admin / webmail -->
-    <li><a href="https://panel.example.com:8443" target="_blank" rel="noopener noreferrer">Panel serwera (port 8443) — panel.example.com:8443</a></li>
-  </ul>
-
-  <footer>
-    <small>Uwaga: protokoły niestandardowe (ssh://, minecraft://, ts3server://) wymagają zainstalowanych handlerów/klientów — przeglądarka może nie obsłużyć bezpośrednio.</small>
-  </footer>
-</body>
+</div>
 </html>
